@@ -75,3 +75,5 @@ Promise.resolve().then(() => console.log('micro task'));
 // micro task
 // macro task
 ```
+
+## 객체지향 프로그래밍과 특징에 대해 설명해 주세요.
