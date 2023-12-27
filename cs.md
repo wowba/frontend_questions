@@ -35,8 +35,8 @@ open addressing은 충돌 발생 시 해시함수로 얻은 주소가 아닌 다
 
 ## 브라우저의 렌더링 과정을 설명하세요.
 
-[웹페이지를 표시한다는 것: 브라우저는 어떻게 동작하는가](https://developer.mozilla.org/ko/docs/Web/Performance/How_browsers_work)
-[브라우저는 어떻게 동작하는가?](https://d2.naver.com/helloworld/59361)
+- [웹페이지를 표시한다는 것: 브라우저는 어떻게 동작하는가](https://developer.mozilla.org/ko/docs/Web/Performance/How_browsers_work)
+- [브라우저는 어떻게 동작하는가?](https://d2.naver.com/helloworld/59361)
 
 ## 브라우저마다 렌더링되는 결과(HTML 또는 CSS)가 조금씩 다른 이유
 
@@ -70,3 +70,31 @@ CSS 단에서 최대한 크로스 브라우징 이슈를 줄이기 위해 CSS Re
 로컬 스토리지는 브라우저를 종료해도 데이터를 저장하고 같은 도메인에서 데이터를 공유하지만, 세션 스토리지는 브라우저 종료시 데이터가 삭제되며 브라우저가 다른 경우 데이터 공유가 되지 않습니다
 
 ## CORS의 정의와 해결 방법에 대해 말해주세요.
+
+CORS는 Cross Origin Resource Sharing의 약자로, 교차 출처 공유라는 의미입니다.
+
+브라우저는 크로스 오리진 요청을 보낼 때 항상 Origin이라는 헤더를 요청에 추가합니다.
+서버에서는 브라우저에서 보낸 요청의 Origin을 검사하고, Access-Control-Allow-Origin 헤더를 추가합니다. 이 헤더에 요청한 Origin 혹은 \*가 들어있으면 응답은 성공합니다.
+
+이 과정에서 브라우저는 크로스 오리진 요청시
+
+1. Origin에 값이 제대로 설정 되었는지 확인
+2. 서버로부터 받은 응답에 Access-Control-Allow-Origin을 확인
+
+위 두 과정을 통해 서버가 크로스 오리진 요청을 허용하는지 확인합니다.
+
+이 때, 응답 헤더에 Access-Control-Allow-Origin이 있다면 응답에 접근 가능하며, 그렇지 않은 경우 에러가 발생합니다.
+
+GET, POST가 아닌 다른 PATCH, DELETE와 같이 안전하지 않은 요청의 경우 브라우저는 서버에 preflight 요청을 보냅니다.
+
+preflight요청은 아래 두 헤더가 담겨있습니다.
+
+- Access-Control-Request-Method / 안전하지 않은 요청에서 사용하는 메서드 정보
+- Access-Control-Request-Headers / 안전하지 않은 요청에서 사용하는 헤더 목록
+
+이러한 요청을 서버에서 허용하기로 되어있다면, 서버는 상태 코드가 200인 응답을 아래 헤더와 함께 보냅니다.
+
+- Access-Control-Allow-Origin / \* 혹은 허용된 Origin
+- Access-Control-Allow-Methods / 허용된 메서드 정보
+- Access-Control-Allow-Headers / 허용된 헤더 목록
+- Access-Control-Max-Age / 퍼미션 시간을 통해 일정 기간동안 preflight 요청 불필요
