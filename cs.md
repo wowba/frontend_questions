@@ -6,6 +6,7 @@
 - [브라우저마다 렌더링되는 결과(HTML 또는 CSS)가 조금씩 다른 이유](#브라우저마다-렌더링되는-결과html-또는-css가-조금씩-다른-이유)
 - [브라우저 저장소간 차이점을 설명해 주세요](#브라우저-저장소간-차이점을-설명해-주세요)
 - [CORS의 정의와 해결 방법에 대해 말해주세요.](#cors의-정의와-해결-방법에-대해-말해주세요)
+- [Rest API에 대해 설명해 주세요.](#rest-api에-대해-설명해-주세요)
 
 # Answers
 
@@ -98,3 +99,22 @@ preflight요청은 아래 두 헤더가 담겨있습니다.
 - Access-Control-Allow-Methods / 허용된 메서드 정보
 - Access-Control-Allow-Headers / 허용된 헤더 목록
 - Access-Control-Max-Age / 퍼미션 시간을 통해 일정 기간동안 preflight 요청 불필요
+
+## Rest API에 대해 설명해 주세요.
+
+[주니어 프론트엔드 개발자가 정리한 REST API](https://velog.io/@dev-tinkerbell/%EC%A3%BC%EB%8B%88%EC%96%B4-%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C-%EA%B0%9C%EB%B0%9C%EC%9E%90%EA%B0%80-%EC%83%9D%EA%B0%81%ED%95%98%EB%8A%94-REST-API)
+
+Rest API는 HTTP기반으로 필요한 리소스를 요청하는 아키텍처로 설계된 어플리케이션 프로그래밍 인터페이스 입니다.
+
+Rest는 자원(Resource), 메소드(Method), 메세지(Message) 3가지로 구성되어 있습니다.
+
+자원은 Rest에서는 자원의 위치를 나타내는 URI(Uniform Resource Identifier)로 접근하는 방식을 말하며,
+메서드는 자원에 접근할 때 어떤 행위로 요청인지 HTTP 메소드로 명시하는 것입니다. GET, PUT, POST, DELETE를 사용하며 이것으로 CRUD를 구현하며
+동일한 자원에 대해서 메소드를 다르게 하여 다른 요청을 보낼 수 있습니다.
+
+Rest API의 속성은 다음과 같습니다.
+
+- 서버에 있는 모든 resource는 각 resource 당 클라이언트가 바로 접근 할 수있는 고유 URI가 존재한다.
+- 모든 요청은 클라이언트가 요청할 때마다 필요한 정보를 주기 때문에 서버에서는 세션 정보를 보관할 필요가 없다. 즉, 서비스에 자유도가 높아지고 유연한 아키텍쳐 적응이 가능하다.
+- HTTP 메소드를 사용한다. 모든 resource는 일반적으로 HTTP 인터페이스인 GET,POST,PUT,DELETE 4개의 메소드로 접근 되어야 한다.
+- 서비스 내에 하나의 resource가 주변에 연관 된 리소스들과 연결되어 표현이 되어야 한다.

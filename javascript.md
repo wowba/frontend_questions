@@ -5,6 +5,7 @@
 - [자바스크립트의 배열은 일반적인 리스트 자료구조와 어떤 차이가 있나요?](#자바스크립트의-배열은-일반적인-리스트-자료구조와-어떤-차이가-있나요)
 - [이벤트 루프와 테스크 큐에 대해 설명해 주세요.](#이벤트-루프와-테스크-큐에-대해-설명해-주세요)
 - [객체지향 프로그래밍과 특징에 대해 설명해 주세요.](#객체지향-프로그래밍과-특징에-대해-설명해-주세요)
+- [자바스크립트의 비동기 처리 방법인 promise와 async/await에 대해 설명해 주세요.](#자바스크립트의-비동기-처리-방법인-promise와-asyncawait에-대해-설명해-주세요)
 
 # Answers
 
@@ -100,3 +101,23 @@ Promise.resolve().then(() => console.log('micro task'));
 
 상속과 추상화를 통해 객체를 만들게 되면, 여러 객체가 동일한 메서드를 실행하는 것으로 같은 취급을 할 수 있습니다. 추상화된 객체는 여러 타입으로 참조할 수 있는 개념이 다형성 입니다.
 다형성을 통해 객체의 일부분을 여러가지 방법으로 재사용 하도록 설계할 수 있습니다.
+
+## 자바스크립트의 비동기 처리 방법인 Promise와 async/await에 대해 설명해 주세요.
+
+[[Javascript] 비동기, Promise, async, await 확실하게 이해하기](https://springfall.cc/article/2022-11/easy-promise-async-await)
+
+Promise는 기존의 비동기 처래 패턴인 콜백 함수를 개선하기 위해 ES6에서 나온 문법입니다.
+
+Promise는 executor라는 함수를 생성하며, 생성시 첫번째 인자로 resolve, 두번째 인자로 reject 함수를 받으며 resolve는 비동기 작업 성공, reject는 비동기 작업 실패시 동작하는 함수입니다.
+
+대기(pending), 이행(fulfilled), 거부(rejected) 3가지 상태를 가지고 있으며, 이행 상태일 때 then, 거부 상태일 때 catch 로 등록한 동작들이 실행됩니다
+
+async / await 키워드는 비동기 함수를 더 쉽게 작성할 수 있도록 ES7에서 나온 문법입니다.
+async 키워드가 붙은 함수는 무조건 Promise를 반환하며, await은 아래의 특징이 있습니다.
+
+- await 키워드는 async로 선언된 함수 내에서만 사용할 수 있습니다.
+- await 은 Promise 가 완료될 때까지 기다립니다.
+- await 은 Promise 가 resolve 한 값을 반환합니다.
+- 해당 Promise 에서 reject 가 발생한다면 예외가 발생합니다
+
+이처럼 await은 기존 Promise에서 직접 then, catch를 이용해 작성하던 내용을 쉽게 컨트롤 할 수 있게 해줍니다.
