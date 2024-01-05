@@ -98,3 +98,7 @@ React에서 하나의 컴포넌트가 여러개의 루트 엘리먼트를 반환
 간단한 상태관리의 경우 useState가 더 좋은 선택일 수 있습니다.
 
 ## 불필요한 렌더링 방지를 위해 어떤 방법을 활용할 수 있나요?
+
+[렌더링 성능 최적화하는 7가지 방법](https://velog.io/@shin6403/React-%EB%A0%8C%EB%8D%94%EB%A7%81-%EC%84%B1%EB%8A%A5-%EC%B5%9C%EC%A0%81%ED%99%94%ED%95%98%EB%8A%94-7%EA%B0%80%EC%A7%80-%EB%B0%A9%EB%B2%95-Hooks-%EA%B8%B0%EC%A4%80)
+
+[리액트 성능 최적화](https://wikidocs.net/197788)
