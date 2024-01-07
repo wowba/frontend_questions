@@ -8,6 +8,7 @@
 - [React에서 Fragment를 사용하는 이유를 설명해주세요.](#react에서-fragment를-사용하는-이유를-설명해주세요)
 - [상태를 관리하는 훅인 useState와 useReducer의 특징과 차이를 설명해주세요.](#상태를-관리하는-훅인-usestate와-usereducer의-특징과-차이를-설명해주세요)
 - [불필요한 렌더링 방지를 위해 어떤 방법을 활용할 수 있나요?](#불필요한-렌더링-방지를-위해-어떤-방법을-활용할-수-있나요)
+- [useEffect 훅은 언제 사용하나요?](#useeffect-훅은-언제-사용하나요)
 
 # Answers
 
@@ -102,3 +103,13 @@ React에서 하나의 컴포넌트가 여러개의 루트 엘리먼트를 반환
 [렌더링 성능 최적화하는 7가지 방법](https://velog.io/@shin6403/React-%EB%A0%8C%EB%8D%94%EB%A7%81-%EC%84%B1%EB%8A%A5-%EC%B5%9C%EC%A0%81%ED%99%94%ED%95%98%EB%8A%94-7%EA%B0%80%EC%A7%80-%EB%B0%A9%EB%B2%95-Hooks-%EA%B8%B0%EC%A4%80)
 
 [리액트 성능 최적화](https://wikidocs.net/197788)
+
+## useEffect 훅은 언제 사용하나요?
+
+[useEffect 공식문서](https://react-ko.dev/reference/react/useEffect)
+
+useEffect 훅은 컴포넌트가 외부 시스템에 연결할 필요가 있을 때 사용합니다.
+즉, React에서 제어하지 않는 외부 서버와의 통신 혹은 기타 라이브러리에 연결 상태를 유지해야 할 때 사용합니다.
+
+useEffect 훅의 동작 순서는 컴포넌트가 커밋 된 이후이며, 이는 컴포넌트가 렌더링 과정을 거치면서 수행해야 하는 로직이 끝난 이후
+effect를 위한 코드를 실행시키기 위해서 입니다.
