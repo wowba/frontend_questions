@@ -9,6 +9,7 @@
 - [상태를 관리하는 훅인 useState와 useReducer의 특징과 차이를 설명해주세요.](#상태를-관리하는-훅인-usestate와-usereducer의-특징과-차이를-설명해주세요)
 - [불필요한 렌더링 방지를 위해 어떤 방법을 활용할 수 있나요?](#불필요한-렌더링-방지를-위해-어떤-방법을-활용할-수-있나요)
 - [useEffect 훅은 언제 사용하나요?](#useeffect-훅은-언제-사용하나요)
+- [useLayoutEffect와 useEffect의 차이를 설명해주세요](#uselayouteffect와-useeffect의-차이를-설명해주세요)
 
 # Answers
 
@@ -113,3 +114,17 @@ useEffect 훅은 컴포넌트가 외부 시스템에 연결할 필요가 있을 
 
 useEffect 훅의 동작 순서는 컴포넌트가 커밋 된 이후이며, 이는 컴포넌트가 렌더링 과정을 거치면서 수행해야 하는 로직이 끝난 이후
 effect를 위한 코드를 실행시키기 위해서 입니다.
+
+## useLayoutEffect와 useEffect의 차이를 설명해주세요
+
+[React Hook Flow](https://github.com/donavon/hook-flow)
+
+useLayoutEffect와 useEffect의 가장 큰 차이는 useLayoutEffect는 동기적, useEffect는 비동기적으로 동작하는 점입니다.
+
+또한 LayoutEffect는 React가 DOM을 업데이트한 뒤 브라우저에서 paint가 동작하기 전 수행됩니다.
+effect의 경우 브라우저에서 paint가 끝난 뒤 동작합니다.
+
+따라서 paint가 발생하기 전 UI를 조작하는 등의 수행시간이 길지 않은 코드는 useLayoutEffect를 활용할 수 있으며,
+외부 서버에서 데이터를 가져오는 등의 작업은 렌더링 이후 동작하는 useEffect를 사용할 수 있습니다.
+
+useLayoutEffect는 렌더링 전 동기적으로 수행되기 때문에 수행시간이 긴 작업을 하게될 경우 렌더링 과정에서 악영향을 끼칠 수 있습니다.

@@ -40,3 +40,4 @@
 - 상태를 관리하는 훅인 useState와 useReducer의 특징과 차이를 설명해주세요.
 - 불필요한 렌더링 방지를 위해 어떤 방법을 활용할 수 있나요?
 - useEffect 훅은 언제 사용하나요?
+- useLayoutEffect와 useEffect의 차이를 설명해주세요
