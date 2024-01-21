@@ -13,6 +13,7 @@
 - CI/CD에 대해 설명해주세요.
 - JSON에 대해 설명해주세요
 - CDN에 대해 설명해주세요
+- 세그먼트 트리에 대해 설명해주세요
 
 ## <a href="./javascript.md">JavaScript Questions</a>
 
